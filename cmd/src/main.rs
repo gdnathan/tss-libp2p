@@ -77,11 +77,12 @@ async fn deploy(args: DeployArgs) -> Result<(), anyhow::Error> {
             kademlia: args.kademlia,
         };
 
-        NetworkWorker::new(node_key, cfg)?
+        NetworkWorker::new(node_key, cfg).map_err(|e| anyhow!("Error while creating network worker: {}", e))?
     };
 
     let net_task = task::spawn(async {
         net_worker.run().await;
+        println!("xxxx 1 ");
     });
 
     let local_peer_id = net_service.local_peer_id();
@@ -94,6 +95,7 @@ async fn deploy(args: DeployArgs) -> Result<(), anyhow::Error> {
     );
 
     let rt_task = task::spawn(async {
+    println!("test herer11");
         rt_worker.run().await;
     });
 

@@ -6,6 +6,7 @@ use std::fmt;
 #[derive(derive_more::Display, derive_more::From)]
 pub enum Error {
     /// Io error
+    #[display(fmt = "IO error: {}", _0)]
     Io(std::io::Error),
     /// The same node (based on address) is registered with two different peer ids.
     #[display(

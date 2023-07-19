@@ -14,4 +14,4 @@ party/Cargo.lock
 
 data
 
-config_peer*.json
+peer_config*.json
