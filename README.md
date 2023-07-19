@@ -36,7 +36,7 @@ To ensure reliable broadcast during computation, messages on wire are being echo
 ### Setup a new node
 The following command will setup a new node by generating new keypair into path `-p` (pattern :id will be replaced on the peer_id) and create peer config file in path `-c` setting peer address as `-m` and its RPC address as `-r`:
 ```bash
-cargo run -- setup -c ./peer_config0.json -r 127.0.0.1:8080 -m /ip4/127.0.0.1/tcp/4000 -p ./data/:id/  
+cargo run -- setup -c ./peer_config0.json -r 127.0.0.1:8080 -m /ip4/127.0.0.1/tcp/4000 -p ./data/:id
 ```
 Make sure to populate `boot_peers` array in each created config file for parties to be able to find each other through peer discovery.
 
